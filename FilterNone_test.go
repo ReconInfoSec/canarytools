@@ -35,8 +35,8 @@ func TestNewFilterNone(t *testing.T) {
 
 func TestFilterNone_Filter(t *testing.T) {
 	type args struct {
-		incidnetsChan         <-chan Incident
-		filteredIncidnetsChan chan<- Incident
+		incidentsChan         <-chan Incident
+		filteredIncidentsChan chan<- Incident
 	}
 	tests := []struct {
 		name string
@@ -47,7 +47,7 @@ func TestFilterNone_Filter(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			tt.fn.Filter(tt.args.incidnetsChan, tt.args.filteredIncidnetsChan)
+			tt.fn.Filter(tt.args.incidentsChan, tt.args.filteredIncidentsChan)
 		})
 	}
 }

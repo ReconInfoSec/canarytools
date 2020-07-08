@@ -49,7 +49,7 @@ func (fn FilterDropEvents) Filter(incidnetsChan <-chan Incident, filteredIncidne
 		fn.l.WithFields(log.Fields{
 			"source":   "FilterDropEvents",
 			"stage":    "filter",
-			"Incidnet": v.Summary,
+			"Incidnet": v.Description,
 		}).Debug("Filter Incident")
 		filteredIncidnetsChan <- v
 	}

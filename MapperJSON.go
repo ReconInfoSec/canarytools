@@ -39,7 +39,7 @@ func (mj MapperJSON) Map(filteredIncidnetsChan <-chan Incident, outChan chan<- [
 		mj.l.WithFields(log.Fields{
 			"source":   "MapperJSON",
 			"stage":    "map",
-			"incident": v.Summary,
+			"incident": v.Description,
 		}).Info("JSON Marshaling incident")
 
 		j, err := json.Marshal(v)

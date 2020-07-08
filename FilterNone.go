@@ -18,13 +18,13 @@ func NewFilterNone(l *log.Logger) (filterNone *FilterNone, err error) {
 }
 
 // Filter filters the incidents, in this case it simply passes them through
-func (fn FilterNone) Filter(incidnetsChan <-chan Incident, filteredIncidnetsChan chan<- Incident) {
+func (fn FilterNone) Filter(incidentsChan <-chan Incident, filteredIncidentsChan chan<- Incident) {
 	fn.l.WithFields(log.Fields{
 		"source": "FilterNone",
 		"stage":  "filter",
 	}).Info("starting FilterNone")
 
-	for v := range incidnetsChan {
+	for v := range incidentsChan {
 		fn.l.WithFields(log.Fields{
 			"source":  "FilterNone",
 			"stage":   "filter",
@@ -33,8 +33,8 @@ func (fn FilterNone) Filter(incidnetsChan <-chan Incident, filteredIncidnetsChan
 		fn.l.WithFields(log.Fields{
 			"source":   "FilterNone",
 			"stage":    "filter",
-			"Incidnet": v.Summary,
+			"Incident": v.Description,
 		}).Debug("Filter Incident")
-		filteredIncidnetsChan <- v
+		filteredIncidentsChan <- v
 	}
 }

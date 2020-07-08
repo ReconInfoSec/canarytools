@@ -144,7 +144,7 @@ func (c *ConsoleAPIFeeder) Feed(incidnetsChan chan<- Incident) {
 		for _, v := range incidents {
 			log.WithFields(log.Fields{
 				"UpdatedID": v.UpdatedID,
-			}).Debug(v.Summary)
+			}).Debug(v.Description)
 			v.ThenWhat = c.thenWhat
 			incidnetsChan <- v
 			// if c.thenWhat == "ack" {
