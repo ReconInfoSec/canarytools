@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/SherifEldeeb/canarytools"
+	"github.com/ReconInfoSec/canarytools"
 )
 
 const (
